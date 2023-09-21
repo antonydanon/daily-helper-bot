@@ -2,7 +2,6 @@ package com.telegrambot.dailyhelperbot.controller;
 
 import com.telegrambot.dailyhelperbot.config.TelegramBotSettings;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -10,7 +9,6 @@ import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
-@Log4j2
 @Component
 @RequiredArgsConstructor
 public class TelegramBotController extends TelegramLongPollingBot {
@@ -42,7 +40,7 @@ public class TelegramBotController extends TelegramLongPollingBot {
             try {
                 execute(message);
             } catch (TelegramApiException e) {
-                log.error(e);
+                System.out.println(e);
             }
         }
     }
