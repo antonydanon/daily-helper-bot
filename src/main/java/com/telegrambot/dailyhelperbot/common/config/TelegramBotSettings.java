@@ -1,4 +1,4 @@
-package com.telegrambot.dailyhelperbot.config;
+package com.telegrambot.dailyhelperbot.common.config;
 
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;

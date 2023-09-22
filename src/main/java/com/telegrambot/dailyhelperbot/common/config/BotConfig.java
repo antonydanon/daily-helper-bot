@@ -1,6 +1,6 @@
-package com.telegrambot.dailyhelperbot.config;
+package com.telegrambot.dailyhelperbot.common.config;
 
-import com.telegrambot.dailyhelperbot.controller.TelegramBotController;
+import com.telegrambot.dailyhelperbot.common.service.TelegramBotService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
@@ -10,9 +10,9 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 @Configuration
 public class BotConfig {
     @Bean
-    public TelegramBotsApi telegramBotsApi(TelegramBotController telegramBotController) throws TelegramApiException {
+    public TelegramBotsApi telegramBotsApi(TelegramBotService telegramBotService) throws TelegramApiException {
         TelegramBotsApi api = new TelegramBotsApi(DefaultBotSession.class);
-        api.registerBot(telegramBotController);
+        api.registerBot(telegramBotService);
         return api;
     }
 }

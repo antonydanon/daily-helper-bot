@@ -1,4 +1,4 @@
-package com.telegrambot.dailyhelperbot.model;
+package com.telegrambot.dailyhelperbot.weather.model;
 
 import lombok.Data;
 

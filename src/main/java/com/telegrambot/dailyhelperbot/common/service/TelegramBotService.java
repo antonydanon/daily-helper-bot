@@ -1,6 +1,6 @@
-package com.telegrambot.dailyhelperbot.controller;
+package com.telegrambot.dailyhelperbot.common.service;
 
-import com.telegrambot.dailyhelperbot.config.TelegramBotSettings;
+import com.telegrambot.dailyhelperbot.common.config.TelegramBotSettings;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -11,8 +11,10 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 @Component
 @RequiredArgsConstructor
-public class TelegramBotController extends TelegramLongPollingBot {
+public class TelegramBotService extends TelegramLongPollingBot {
 
+
+    private final CommandHandlerService commandHandlerService;
     private final TelegramBotSettings telegramBotSettings;
     @Override
     public String getBotUsername() {
@@ -27,7 +29,9 @@ public class TelegramBotController extends TelegramLongPollingBot {
     @Override
     public void onUpdateReceived(Update update) {
             Message message = update.getMessage();
-            System.out.println(message.getText());
+            String messageText = message.getText();
+
+            System.out.println(commandHandlerService.commandServices.size());
 
             SendMessage sendMessage = new SendMessage();
             sendMessage.setChatId(message.getChatId());

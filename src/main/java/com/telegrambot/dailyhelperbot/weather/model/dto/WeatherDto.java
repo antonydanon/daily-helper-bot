@@ -1,6 +1,6 @@
-package com.telegrambot.dailyhelperbot.model.dto;
+package com.telegrambot.dailyhelperbot.weather.model.dto;
 
-import com.telegrambot.dailyhelperbot.model.*;
+import com.telegrambot.dailyhelperbot.weather.model.*;
 import lombok.Data;
 
 @Data
